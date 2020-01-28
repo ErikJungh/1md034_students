@@ -79,14 +79,30 @@
                         <input type="number" id="House" name="fn" required="required" placeholder="House number"/>
                     </p>
                     <p>
-                        <label for="Payment options">Payment Options</label></form></br>
+                        <label for="Payment options">Payment Options</label><br>
                         <select id="Payment options" name="Payment">
-                            <option>Credit card</option>
+                            <option selected="selected">Credit card</option>
                             <option>On arrival</option>
                             <option>PayPal</option>
                         </select>
                     </p>
+                    <p>
+                        <label>Gender</label><br>
+
+                            <input type="radio" id="Male" name="gb" required="required" value="Male"/>
+                            <label for="Male">Male</label><br>
+
+                            <input type="radio" id="Female" name="gb" required="required" value="Female"/>
+                            <label for="Female">Female</label><br>
+
+                            <input type="radio" id="Non-Binary" name="gb" required="required" value="Non-Binary"/>
+                            <label for="Non-Binary">Non-binary</label><br>
+
+                            <input type="radio" id="Undisclosed" name="gb" required="required" checked="checked" value="Undisclosed"/>
+                            <label for ="Undisclosed">Undisclosed</label><br>
+                    </p>
                 </form>
+
         </section>
     </div>
     <div class ="footer">
