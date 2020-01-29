@@ -1,4 +1,32 @@
 body {
     font-family: arial;
     font-size: 15px;
+
+}
+
+div.Burgers{
+    color: white;
+    padding: 7px;
+    background-color: black;
+}
+
+.allergy{
+
+
+}
+#Meat {
+    font-weight: bold;
+
+}
+#Gluten{
+    font-weight: bold;
+
+}
+#Lactose {
+    font-weight: bold;
+
+}
+#Salad{
+    font-weight: bold;
+    
 }
