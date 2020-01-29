@@ -4,16 +4,16 @@ body {
 
 }
 
-div.Burgers{
+#Products{
     color: white;
     padding: 7px;
     background-color: black;
 }
-
-.allergy{
-
-
+#Contact {
+    background-color: white;
+    color: black;
 }
+
 #Meat {
     font-weight: bold;
 
@@ -28,5 +28,5 @@ div.Burgers{
 }
 #Salad{
     font-weight: bold;
-    
+
 }
