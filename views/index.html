@@ -1,93 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script defer type="text/javascript" src="js/menu.js"></script>
+    <script defer src="https://vuejs.org/js/vue.js"></script>
+    <script defer src="js/js_script.js"></script>
+    <script defer src="js/vue_script.js"></script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+
     <title>Jenkas Junkfood</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="utf-8"/>
 </head>
 <body>
     <main>
-    <div class ="Menu header">
-        <h1>Welcome to Jenkas Junkfood!</h1>
+
+    <div class ="Menu_header">
+        <div class="background"><img src="img/bar.png" alt="picture" title="barpic" width="100%" height="150px"></div>
+        <div class="headertext"><h1>Welcome to Jenkas Junkfood!</h1></div>
     </div>
     <div class = "Burgers">
-        <section id = "Products">
+        <div class="ProductHead">
             <h2>Our burgers</h2>
             <p>These are our currently available burgers</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>The good burger</th>
-                        <th>The bad burger</th>
-                        <th>The ugly burger</th>
-                    </tr>
-                </thead>
-                <tbody>
+        </div>
+        <section id = "Products">
 
-                        <td>
-                            <tr>
+                <div v-for="burger in menu">
+                    {{burger.name}}
 
-                                <td>
-                                    <img src="https://f.nordiskemedier.dk/2vnzrf9miqy7i9xb.jpg" alt="Good burger" title="The good burger" width="200">
-                                        <ul>
+                    <input type="checkbox" v-bind:value=burger.name v-model ="burgers" v-bind:id="burger.id" />
 
-                                            <li>750 Kcal</li>
-                                            <li>
-                                                <section class ="allergy">
-                                                <p>Contains<span id="Gluten"> Gluten</span></p>
-                                                </section>
-                                            </li>
-                                            <li>
-                                                <section class ="allergy">
-                                                <p>Contains<span id="Meat"> Meat</span></p>
-                                                </section>
-                                            </li>
-                                        </ul>
-                                </td>
-                                <td>
-                                <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/63/f9/03/yuk-cheap-and-nasty-burger.jpg" alt="Bad burger" title="The bad burger" width="200" height = "162">
-                                    <ul>
-                                        <li>600 kcal</li>
+                    <label for="burger.id"><img v-bind:src="burger.image"></label>
 
-                                        <li>
-                                            <section class ="allergy">
-                                            <p>Contains<span id="Gluten"> Gluten</span></p>
-                                            </section>
-                                        </li>
-                                        <li>
-                                            <section class ="allergy">
-                                            <p>Contains<span id="Lactose"> Lactose</span></p>
-                                            </section>
-                                        </li>
-
-                                    </ul>
-                                </td>
-                                <td>
-                                    <img src="https://image.shutterstock.com/image-photo/ugly-fat-sandwich-260nw-53890693.jpg" alt="Ugly burger" title="The ugly burger" width="200" height = "162">
-                                    <ul>
-                                        <li>800 kcal</li>
-
-                                        <li>
-                                            <section class ="allergy">
-                                                <p>Contains<span id="Salad"> Salad</span></p>
-                                            </section>
-
-                                        </li>
-                                        <li>
-                                            <section class ="allergy">
-                                                <p>Contains<span id="Meat"> Meat</span></p>
-                                            </section>
-                                        </li>
-                                    </ul>
-                                </td>
+                    <ul>
+                        <li>
+                            {{'Contains ' + burger.kcal + 'kcal'}}
+                        </li>
+                        <li v-if = "burger.gluten">
+                            {{'Contains gluten'}}
+                        </li>
+                        <li v-if = "burger.lactose">
+                            {{'Contains lactose'}}
+                        </li>
+                    </ul>
+                </div>
 
 
 
-                            </tr>
-                        </td>
+            <!---
 
-                </tbody>
-            </table>
+                    <div class ="goodburger">
+                        <h2>The good burger</h2>
+                        <img src="https://f.nordiskemedier.dk/2vnzrf9miqy7i9xb.jpg" alt="Good burger" title="The good burger" width="200">
+                            <ul>
+
+                                <li>750 Kcal</li>
+                                <li>
+                                    <section class ="allergy">
+                                    <p>Contains<span id="Gluten"> Gluten</span></p>
+                                    </section>
+                                </li>
+                                <li>
+                                    <section class ="allergy">
+                                    <p>Contains<span id="Meat"> Meat</span></p>
+                                    </section>
+                                </li>
+                            </ul>
+                    </div>
+                    <div class ="badburger">
+                    <h2>The bad burger</h2>
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/63/f9/03/yuk-cheap-and-nasty-burger.jpg" alt="Bad burger" title="The bad burger" width="200" height = "162">
+                        <ul>
+                            <li>600 kcal</li>
+
+                            <li>
+                                <section class ="allergy">
+                                <p>Contains<span id="Gluten"> Gluten</span></p>
+                                </section>
+                            </li>
+                            <li>
+                                <section class ="allergy">
+                                <p>Contains<span id="Lactose"> Lactose</span></p>
+                                </section>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="uglyburger">
+                        <h2>The ugly burger</h2>
+                        <img src="https://image.shutterstock.com/image-photo/ugly-fat-sandwich-260nw-53890693.jpg" alt="Ugly burger" title="The ugly burger" width="200" height = "162">
+                        <ul>
+                            <li>800 kcal</li>
+
+                            <li>
+                                <section class ="allergy">
+                                    <p>Contains<span id="Salad"> Salad</span></p>
+                                </section>
+
+                            </li>
+                            <li>
+                                <section class ="allergy">
+                                    <p>Contains<span id="Meat"> Meat</span></p>
+                                </section>
+                            </li>
+                        </ul>
+                    </div>
+                    --->
         </section>
 
     </div>
@@ -99,23 +118,26 @@
                     <h3>Delivery Information:</h3>
                     <p>
                         <label for="Full name">Full name</label><br>
-                        <input type="text" id="Full name" name="fn" required="required" placeholder="Full name"/>
+                        <input type="text" id="Full name" name="fn" required="required" v-model="name" placeholder="Full name"/>
                     </p>
                     <p>
                         <label for="E-mail">E-mail</label><br>
-                        <input type="text" id="E-mail" name="fn" required="required" placeholder="E-mail"/>
+                        <input type="text" id="E-mail" name="fn" required="required"  v-model="email" placeholder="E-mail"/>
                     </p>
-                    <p>
-                        <label for="Street">Street</label><br>
-                        <input type="text" id="Street" name="fn" required="required" placeholder="Street"/>
-                    </p>
-                    <p>
-                        <label for="House">House</label><br>
-                        <input type="number" id="House" name="fn" required="required" placeholder="House number"/>
-                    </p>
+                    <h1> Click in the map! </h1>
+                    <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+                    <div class="view-box">
+                        <div id="dots" v-on:click="addOrder">
+                            <div
+                                    v-for="(order, key) in orders"
+                                    v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                                {{key}}
+                            </div>
+                        </div>
+                    </div>
                     <p>
                         <label for="Payment options">Payment Options</label><br>
-                        <select id="Payment options" name="Payment">
+                        <select id="Payment options" v-model="payment" name="Payment">
                             <option selected="selected">Credit card</option>
                             <option>On arrival</option>
                             <option>PayPal</option>
@@ -124,24 +146,26 @@
                     <p>
                         <label>Gender</label><br>
 
-                            <input type="radio" id="Male" name="gb" required="required" value="Male"/>
+                            <input type="radio" id="Male" name="gb" required="required" v-model="male" value="Male"/>
                             <label for="Male">Male</label><br>
 
-                            <input type="radio" id="Female" name="gb" required="required" value="Female"/>
+                            <input type="radio" id="Female" name="gb" required="required" v-model="female" value="Female"/>
                             <label for="Female">Female</label><br>
 
-                            <input type="radio" id="Non-Binary" name="gb" required="required" value="Non-Binary"/>
+                            <input type="radio" id="Non-Binary" name="gb" required="required"  v-model="nonbinary" value="Non-Binary"/>
                             <label for="Non-Binary">Non-binary</label><br>
 
-                            <input type="radio" id="Undisclosed" name="gb" required="required" checked="checked" value="Undisclosed"/>
+                            <input type="radio" id="Undisclosed" name="gb" required="required" checked="checked" v-model="undisclosed" value="Undisclosed"/>
                             <label for ="Undisclosed">Undisclosed</label><br>
                     </p>
 
                 </form>
             <p>
-                <button type="submit"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/1180px-Checkmark_green.svg.png" alt="Send order" width="10" height="10"> send Info</button>
+                <button type="submit" id="submit" v-on:click="markDone(name, email, payment, male, female, nonbinary, undisclosed)"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/1180px-Checkmark_green.svg.png" alt="Send order" width="10" height="10"> send Info</button>
             </p>
+            <div id="orderInfo">
 
+            </div>
         </section>
     </div>
     <div class ="footer">

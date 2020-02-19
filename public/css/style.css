@@ -1,17 +1,92 @@
 body {
     font-family: arial;
     font-size: 15px;
+    margin:0 auto;
+    width:100%;
+
+
+
+}
+table {
+    margin:0 auto;
+}
+.Burgers{
+    margin: 10px 5px 10px 5px;
+    background-color: black;
+    color: white;
+
+    border: 1px dashed #ffffff;
+    outline: 1px dashed #fff;
+    outline-offset: -2px;
+
+
+}
+.ProductHead{
+    margin-left: 20px;
+
+}
+.SiteInfo {
+    margin: 20px 5px 10px 5px;
+    border: 1px dashed;
+}
+.headertext{
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+.background{
+
+    opacity:0.5;
+
+
+}
+
+
+.Menu_header{
+
+    overflow:hidden;
+    padding-top: 20px;
+    padding-bottom:20px;
+    margin: 10px 10px 0 10px;
+}
+
+.goodburger{
+    margin-left: 10px;
+
+
+}
+ul {
+    display:table;
+    margin:10px auto;
+
+}
+
+#Products img {
+    width: 15em;
+    height: 11em;
+}
+#orderInfo {
+    color: Black;
+    width: 100em;
 
 }
 
 #Products{
     color: white;
-    padding: 7px;
-    background-color: black;
+    text-align: center;
+    padding-top: 10px;
+    display:grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+
+
 }
 #Contact {
     background-color: white;
     color: black;
+    margin-left: 20px;
 }
 
 #Meat {
@@ -29,4 +104,62 @@ body {
 #Salad{
     font-weight: bold;
 
+}
+
+button:hover{
+    background-color: green;
+    cursor:pointer;
+
+
+}
+#submit{
+    margin-top: 20px;
+}
+
+div.footer {
+    margin-left: 7px;
+    margin-bottom: 10px;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.view-box {
+    width: 90%;
+    height: 50vh;
+    margin: 1em auto;
+    overflow: scroll;
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+#dots {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: url(/img/polacks.jpg);
+    background-repeat: no-repeat;
+    width:1920px;
+    height: 1078px;
+    cursor: crosshair;
+}
+
+#dots div {
+    position: absolute;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    width:20px;
+    height:20px;
+    text-align: center;
+}
+
+#orderList {
+    top:1em;
+    left:1em;
+    position: absolute;
+    z-index: 2;
+    color:black;
+    background: rgba(255,255,255, 0.5);
+    padding: 1em;
 }
