@@ -37,17 +37,23 @@ const vm = new Vue({
         markDone: function(name, email, payment, male, female, nonbinary, undisclosed) {
             let myElement = document.getElementById("orderInfo");
             document.getElementById("orderInfo").innerHTML = "";
-            let nameItem = document.createElement("li");
-            nameItem.appendChild(document.createTextNode(name))
-            let emailItem = document.createElement("li");
-            emailItem.appendChild(document.createTextNode(email))
+            let nameItem = document.createElement("p");
+            nameItem.appendChild(document.createTextNode('Name: ' + name))
+            let emailItem = document.createElement("p");
+            emailItem.appendChild(document.createTextNode('E-mail: ' + email))
+            let paymentItem = document.createElement("p");
+            paymentItem.appendChild(document.createTextNode('Payment method: ' + payment))
+            let genderItem = document.createElement("p");
+            let orderConfirmation = document.createElement("h2");
+            orderConfirmation.appendChild(document.createTextNode('Order Confirmation'))
+            let customerHeader = document.createElement("h3");
+            customerHeader.appendChild(document.createTextNode('Customer Information'))
+            let productConfirmation = document.createElement("h3");
+            productConfirmation.appendChild(document.createTextNode('Order summary'))
 
-            let paymentItem = document.createElement("li");
-            paymentItem.appendChild(document.createTextNode(payment))
-            let genderItem = document.createElement("li");
 
-
-
+            myElement.appendChild(orderConfirmation);
+            myElement.appendChild(customerHeader);
             myElement.appendChild(nameItem);
             myElement.appendChild(emailItem);
             myElement.appendChild(paymentItem);
@@ -68,9 +74,12 @@ const vm = new Vue({
                 genderItem.appendChild(document.createTextNode('Undisclosed'))
                 myElement.appendChild(genderItem);
             }
+
+
             let burgers = vm2.getBurgers();
+            myElement.appendChild(productConfirmation);
             for(x in burgers){
-                let burgerItem = document.createElement("li");
+                let burgerItem = document.createElement("p");
                 burgerItem.appendChild(document.createTextNode(burgers[x]))
                 myElement.appendChild(burgerItem);
             }
